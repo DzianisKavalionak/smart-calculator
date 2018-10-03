@@ -34,17 +34,17 @@ class SmartCalculator {
       for(let i = len; i > 0; i--){
           if (this.arr[i] === 'pow'){
               this.arr.splice(i - 1, 3, Math.pow(this.arr[i -1], this.arr[i + 1]));
-              this.calculateNumbers();
+              i++;
           }
       }
       for(let i = 0; i < len; i++){
           if (this.arr[i] === '*' || this.arr[i] === '/'){
               if (this.arr[i] === '*'){
                   this.arr.splice(i - 1, 3, this.arr[i - 1] * this.arr[i + 1]);
-                  this.calculateNumbers();
+                  i--;
               } else {
                   this.arr.splice(i - 1, 3, this.arr[i - 1] / this.arr[i + 1]);
-                  this.calculateNumbers();
+                  i--;
               }
           }
       }
@@ -52,10 +52,10 @@ class SmartCalculator {
           if (this.arr[i] === '+' || this.arr[i] === '-'){
               if (this.arr[i] === '+'){
                   this.arr.splice(i - 1, 3, this.arr[i - 1] + this.arr[i + 1]);
-                  this.calculateNumbers();
+                  i--;
               } else {
                   this.arr.splice(i - 1, 3, this.arr[i - 1] - this.arr[i + 1]);
-                  this.calculateNumbers();
+                  i--;
               }
           }
       }
